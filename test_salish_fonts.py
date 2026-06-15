@@ -2,7 +2,9 @@ import os
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
-API_KEY = "AIzaSyCI5rez2hos96uR55LNmt-3L4hUvNjLwJY"
+API_KEY = os.environ.get("GOOGLE_FONTS_API_KEY")
+if not API_KEY:
+    raise ValueError("GOOGLE_FONTS_API_KEY environment variable not set")
 FONTS_DIR = "fonts"
 OUTPUT_DIR = "output"
 IMAGES_DIR = os.path.join(OUTPUT_DIR, "images")
